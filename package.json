@@ -5,10 +5,16 @@
   "dependencies": {
     "express": "^4.16.4",
     "express-favicon": "^2.0.1",
+    "node-sass": "^4.10.0",
     "path": "^0.12.7",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "react-scripts": "2.1.1"
+    "react-intl": "^2.7.2",
+    "react-redux": "^6.0.0",
+    "react-scripts": "2.1.1",
+    "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "node server.js",
