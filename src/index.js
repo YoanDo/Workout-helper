@@ -28,5 +28,5 @@ render(
       <Index />
     </Provider>
   </IntlProvider>,
-  document.getElementById('main'),
+  document.getElementById('root'),
 );
