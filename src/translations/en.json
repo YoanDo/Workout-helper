@@ -1,7 +1,9 @@
 {
+  "intro": "A simple webapp to help you through your daily exercises with sound notifications. Focus on your workout not on your clock.",
   "time": "What is your goal? Define the duration of your exercises",
   "serie": "How many repetitions do you want to perform per loop?",
   "rest": "Define the rest time needed at the end of each loop",
-  "loop": "How many loop would you like to do? "
+  "loop": "How many loop would you like to do? ",
+  "get_read": "Get ready",
+  "reset": "reset"
 }
-

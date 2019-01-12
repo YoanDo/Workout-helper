@@ -1,5 +1,5 @@
 import React from 'react';
-import { addLocaleData } from 'react-intl';
+import { addLocaleData, FormattedMessage } from 'react-intl';
 import locale_en from 'react-intl/locale-data/en';
 import locale_fr from 'react-intl/locale-data/fr';
 import Display from './display';
@@ -11,6 +11,7 @@ addLocaleData([...locale_en, ...locale_fr]);
 export default () => (
   <div className="flex-column helper-container">
     <Display />
+    <span className="intro"><FormattedMessage id="intro" /></span>
     <div className="flex-row ctrl-board">
       <Control min={5} max={120} label="time" />
       <Control min={1} max={30} label="serie" />

@@ -65,7 +65,7 @@ h1 {
   margin-bottom: 42px;
 }
 
-p {
+p,span {
   color: white;
   font-size: 16px;
 }
@@ -99,7 +99,7 @@ p {
   flex-wrap: wrap;
   width: $board-width;
   max-width: 1060px;
-  margin-bottom: 42px;
+  margin: 42px auto;
 }
 .domain {
   display: flex;
@@ -113,7 +113,7 @@ p {
     color: $yellow;
   }
   h1 {
-    margin-top: 0;
+    margin: 0;
     cursor:pointer;
   }
   p {
@@ -127,7 +127,7 @@ p {
 .controller {
   border-radius: 6px;
   height: 60px;
-  margin: 20px 0;
+  margin: 0;
   border: 2px solid $yellow;
   color: $yellow;
   width: 120px;
@@ -147,18 +147,25 @@ p {
   }
 }
 
-//
-.runner{
-  width: 50vw;
-  border-radius: 6px;
-  background-color: $yellow;
-  border: none;
-  text-transform: uppercase;
-  cursor: pointer;
-  p{
-    color: $charcoil;
+.runner-container {
+  span.runner-reset {
+    cursor: pointer;
+    margin: $s-fsize 0 0 0;
+  }
+  .runner {
+    width: 50vw;
+    border-radius: 6px;
+    background-color: $yellow;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    p {
+      color: $charcoil;
+    }
   }
 }
+
+
 
 /**************
    display

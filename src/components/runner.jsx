@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { FormattedMessage } from 'react-intl';
 import { toggle_run, reset } from '../actions/indexAction';
 
 class Runner extends Component {
@@ -12,23 +13,25 @@ class Runner extends Component {
   }
 
   render() {
+    const { toggle_run, reset, running } = this.props;
+    const { standBy } = this.state;
     return (
-      <div className="flex-column">
-        { this.props.running
+      <div className="flex-column runner-container">
+        { running
           ? (
-            <button className="runner" onClick={this.props.toggle_run}>
+            <button className="runner" onClick={toggle_run}>
               <p>stop</p>
             </button>
           )
           : null}
-        { !this.props.running ? (
-          <button className="runner" onClick={this.props.toggle_run}>
+        { !running ? (
+          <button className="runner" onClick={toggle_run}>
             <p>start</p>
           </button>
         )
           : null}
-        { this.state.standBy ? <button className="standBy runner"><p>get ready</p></button> : null }
-        <p onClick={this.props.reset}>reset</p>
+        { standBy ? <button className="standBy runner"><p><FormattedMessage id="get_ready" /></p></button> : null }
+        <span className="runner-reset" onClick={reset}><FormattedMessage id="reset" /></span>
       </div>
     );
   }

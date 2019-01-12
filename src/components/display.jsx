@@ -88,7 +88,6 @@ class Display extends Component {
       const restTime = this.props.rest + 1;
       // progression
       const endOfTrack = trackCount === this.props.serie && loopDone < this.props.loop;
-      console.log(this.state.trackCount, this.props.running);
       this.setState({ trackCount: trackCount + 1 });
       if (trackCount < this.props.serie && this.props.running) {
         if (trackCount > 0) {
