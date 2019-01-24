@@ -1,23 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Anton|Oswald');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Oswald:400,700');
 
 // mesure
-$board-height: 100vh;
-$board-width: 72vw;
+$board-width: 80vw;
 $block-width: 12vw;
-$display-height: 100px;
+$domain-width: 124px;
 
-// color to clean 🚨
-$purple: #25237E;
-$pink: #FFDECB;
-// test
-// compo1
-$cream: #E4E4DA;
-$vibRed: #FCFAA3;
+// colors
 $charcoil: #2C2C2C;
-// compo 2
-$seaBlue: #01698C;
-$goldenSand: #E4D063;
-// compo 3
 $yellow: #FCFAA3;
 
 // size
@@ -26,8 +15,7 @@ $m-fsize: 32px;
 $s-fsize: 16px;
 $xs-fsize: 12px;
 
-// spacing
-$top-spacing: 128px;
+$s-spacing: 42px;
 
 html,
 body {
@@ -48,7 +36,7 @@ body {
 
 * {
   box-sizing: border-box;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
   -khtml-user-select: none; /* Konqueror HTML */
@@ -69,15 +57,24 @@ button.standBy {
 
 h1 {
   font-family: 'Oswald', sans-serif;
+  font-weight: 700;
   color: white;
   text-transform: uppercase;
   font-size: $l-fsize;
-  margin-bottom: 42px;
+  margin-bottom: $s-spacing;
+  line-height: 1;
 }
 
 p,span {
   color: white;
   font-size: $s-fsize;
+}
+
+p{
+  margin: 0;
+  & p{
+    margin-top: $s-fsize;
+  }
 }
 
 @media (max-width: 900px) {
@@ -102,8 +99,8 @@ p,span {
 
 .helper-container {
   min-height: 100vh;
-  padding-top: 64px;
-  padding-bottom: 64px;
+  padding-top: $l-fsize;
+  padding-bottom: $l-fsize;
 }
 
 @media (max-width: 900px) {
@@ -115,13 +112,14 @@ p,span {
 /**************
    Controller
 ***************/
+
 .ctrl-board {
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
   width: $board-width;
   max-width: 1060px;
-  margin: 42px auto;
+  margin: $s-spacing auto;
 }
 
 @media  (max-width: 900px) {
@@ -130,6 +128,7 @@ p,span {
     margin: $m-fsize 0;
   }
 }
+
 .domain {
   display: flex;
   flex-direction: column;
@@ -137,8 +136,8 @@ p,span {
   align-items: center;
   min-height: 324px;
   width: $block-width;
-  min-width: 124px;
-  &:hover h1{
+  min-width: $domain-width;
+  &:hover h1 {
     color: $yellow;
   }
   h1 {
@@ -146,7 +145,6 @@ p,span {
     cursor:pointer;
   }
   p {
-    margin-top: 0;
     text-align: center;
   }
   & + .domain {
@@ -154,14 +152,27 @@ p,span {
   }
 }
 
+@media (max-width: 640px) {
+  .intro{
+    margin-top: $m-fsize;
+  }
+  .domain {
+    margin: $m-fsize;
+    margin-bottom: 0;
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+}
+
 .controller {
   border-radius: 6px;
-  height: 60px;
+  height: $l-fsize;
   margin: 0;
   border: 2px solid $yellow;
   color: $yellow;
-  width: 120px;
-  .ctrl-button{
+  width: $domain-width;
+  .ctrl-button {
     font-size: $s-fsize;
     width: 40px;
     display: flex;
@@ -171,18 +182,20 @@ p,span {
     font-size: 20px;
     cursor: pointer;
   }
-  .ctrl-display{
+  .ctrl-display {
+    font-family: 'Oswald';
+    font-weight: 400;
     flex-grow: 1;
     font-size: $m-fsize;
   }
 }
 
-
-@media (max-width: 400px) {
+@media (max-width: 420px) {
   .domain {
-    min-height: 130px;
+    min-height: $domain-width;
     width: 100%;
     margin-left: 0;
+    margin-right: 0;
     flex-direction: row;
     h1{
       font-size: $m-fsize;
@@ -190,10 +203,11 @@ p,span {
     }
     & + .domain {
       margin-left: 0;
+      margin-right: 0;
     }
     .controller {
-      min-width:76px;
-      width: 76px;
+      min-width:$l-fsize;
+      width: $l-fsize;
       height: auto;
       flex-direction: column;
       margin-left: $s-fsize;
@@ -218,8 +232,9 @@ p,span {
     margin: $s-fsize 0 0 0;
   }
   .runner {
+    height: $l-fsize;
     width: 50vw;
-    border-radius: 6px;
+    border-radius: 3px;
     background-color: $yellow;
     border: none;
     text-transform: uppercase;
@@ -249,6 +264,13 @@ p,span {
     }
   }
 }
+@media (max-width: 900px){
+  .bar{
+    -webkit-box-shadow: 0px 32px 12px 31px $charcoil, inset 10px 10px 5px 200px $charcoil;
+    -moz-box-shadow: 0px 32px 12px 31px $charcoil, inset 10px 10px 5px 200px $charcoil;
+    box-shadow: 0px 32px 12px 31px $charcoil, inset 10px 10px 5px 200px $charcoil;
+  }
+}
 
 /**************
      Footer
@@ -269,7 +291,7 @@ footer {
 }
 
 footer a {
-  margin: 15px;
+  margin: $s-fsize;
   color: white;
   text-decoration: none;
 }
